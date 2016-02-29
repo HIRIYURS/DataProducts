@@ -1,0 +1,43 @@
+The Effect of Vitamin C on Tooth Growth in Guinea Pigs
+========================================================
+author: Santhosh Shankar
+date: `r date()`
+
+Overview of the Application
+========================================================
+We're going to analyze the ToothGrowth data in the R datasets package through our Shiny application. The url for the shiny application is,
+https://hiriyurs.shinyapps.io/shinyapp1/
+
+Using the Application, we can view various graphs ploting the length of Tooth against all possible combinations of Supplement type and the level of dose. 
+
+For example, we can plot for a given supplement against any given level of dose or compare against all level of doses at once. Vice versa for Supplemt type for a given level of Dose.
+
+
+Findings from the Application
+========================================================
+For dose level 0.5 and 1.0 mg/day, the Supplement type Orange Juice seems to fare better than the Supplement Ascrobic Acid (VC).
+
+However, the same is not the case at higher (2.0 mg/day) dosage - there is not a strong evidence that there is significant difference in teeth growth at higher dose of either Orange Juice (OJ) or Ascrobic Acid (VC). The above can be demonstrated using our App by plotting for each supplement type at different level of dose and comparing them.
+
+Performance of Supplement and corresponding doses
+========================================================
+Let's plot something that's not provided in our App to see if our findings match. Actually it does - looking at the Graph, the supplment type VC seem to do better at higher dose (2.0 mg/day) interms of higher count of higher values of length!!
+
+```{r, echo = FALSE} 
+library(datasets)
+data(ToothGrowth)
+coplot(len ~ dose | supp, data = ToothGrowth, panel = panel.smooth,
+       xlab = "ToothGrowth data: length vs dose, given type of supplement")
+```
+
+
+Conculsion
+========================================================
+Looking at the above Graphs and also various combination of plots we can plot in the application, the following can be said,
+
+1. It's clear that Orange Juice (OJ) fares better at lower dose (0.5 and 1.0) than Ascrobic acid (VC) 
+
+2. Both Orange Juice (OJ) and Ascrobic Acid (VC) fares similar with higer dose (2.0).
+
+3. However, looking at the Graph 2, the supplment type VC seem to do better interms of higher count of higher values of length!!
+
